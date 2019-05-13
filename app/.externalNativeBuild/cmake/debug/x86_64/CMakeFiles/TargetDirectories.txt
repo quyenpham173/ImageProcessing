@@ -1,0 +1,3 @@
+/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/rebuild_cache.dir
+/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/edit_cache.dir
+/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/Preprocess.dir

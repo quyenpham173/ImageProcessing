@@ -1,0 +1,18 @@
+{
+  "buildFiles": [
+    "/home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake",
+    "/home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake",
+    "/home/quyenpham/ImageProcessing/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/release/arm64-v8a\" --target clean"
+  ],
+  "libraries": {
+    "Preprocess-Release-arm64-v8a": {
+      "artifactName": "Preprocess",
+      "buildCommand": "/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/release/arm64-v8a\" --target Preprocess",
+      "abi": "arm64-v8a",
+      "output": "/home/quyenpham/ImageProcessing/app/build/intermediates/cmake/release/obj/arm64-v8a/libPreprocess.so"
+    }
+  }
+}

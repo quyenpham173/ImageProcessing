@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/release/armeabi-v7a",
+  "command": "/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -DPreprocess_EXPORTS -I/home/quyenpham/ImageProcessing/app/src/main/cpp/../jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -mfpu=neon -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++14 -fexceptions -frtti -Oz -DNDEBUG  -fPIC   -o CMakeFiles/Preprocess.dir/C_preprocess.cpp.o -c /home/quyenpham/ImageProcessing/app/src/main/cpp/C_preprocess.cpp",
+  "file": "/home/quyenpham/ImageProcessing/app/src/main/cpp/C_preprocess.cpp"
+}
+]

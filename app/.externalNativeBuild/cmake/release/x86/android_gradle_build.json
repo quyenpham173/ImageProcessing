@@ -1,0 +1,41 @@
+{
+  "stringTable": {
+    "0": "/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/release/x86",
+    "1": "--target=i686-none-linux-android21 --gcc-toolchain=/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DPreprocess_EXPORTS -I/home/quyenpham/ImageProcessing/app/src/main/cpp/../jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++14 -fexceptions -frtti -O2 -DNDEBUG -fPIC"
+  },
+  "buildFiles": [
+    "/home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake",
+    "/home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake",
+    "/home/quyenpham/ImageProcessing/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/release/x86\" --target clean"
+  ],
+  "libraries": {
+    "Preprocess-Release-x86": {
+      "buildCommand": "/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/release/x86\" --target Preprocess",
+      "buildType": "release",
+      "toolchain": "2856925111",
+      "abi": "x86",
+      "artifactName": "Preprocess",
+      "files": [
+        {
+          "src": "/home/quyenpham/ImageProcessing/app/src/main/cpp/C_preprocess.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "/home/quyenpham/ImageProcessing/app/build/intermediates/cmake/release/obj/x86/libPreprocess.so"
+    }
+  },
+  "toolchains": {
+    "2856925111": {
+      "cppCompilerExecutable": "/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

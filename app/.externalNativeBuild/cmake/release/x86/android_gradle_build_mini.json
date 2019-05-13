@@ -1,0 +1,18 @@
+{
+  "buildFiles": [
+    "/home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake",
+    "/home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake",
+    "/home/quyenpham/ImageProcessing/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/release/x86\" --target clean"
+  ],
+  "libraries": {
+    "Preprocess-Release-x86": {
+      "artifactName": "Preprocess",
+      "buildCommand": "/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/release/x86\" --target Preprocess",
+      "abi": "x86",
+      "output": "/home/quyenpham/ImageProcessing/app/build/intermediates/cmake/release/obj/x86/libPreprocess.so"
+    }
+  }
+}
