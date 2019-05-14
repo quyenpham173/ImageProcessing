@@ -16,8 +16,8 @@ CMAKE SERVER: {
     "major": 1,
     "minor": 1
   },
-  "sourceDirectory": "/home/quyenpham/ImageProcessing/app/src/main/cpp",
-  "buildDirectory": "/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64",
+  "sourceDirectory": "/home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp",
+  "buildDirectory": "/home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64",
   "generator": "Ninja"
 }
 
@@ -39,7 +39,7 @@ CMAKE SERVER: {
     "",
     "-DANDROID_ABI\u003dx86_64",
     "-DANDROID_PLATFORM\u003dandroid-21",
-    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/home/quyenpham/ImageProcessing/app/build/intermediates/cmake/debug/obj/x86_64",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/home/quyenpham/Downloads/ImageProcessing/app/build/intermediates/cmake/debug/obj/x86_64",
     "-DCMAKE_BUILD_TYPE\u003dDebug",
     "-DANDROID_NDK\u003d/home/quyenpham/Android/Sdk/ndk-bundle",
     "-DCMAKE_C_FLAGS\u003d-D__STDC_FORMAT_MACROS",
@@ -65,6 +65,64 @@ CMAKE SERVER:
 
 CMAKE SERVER: [== "CMake Server" ==[
 
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":900,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"CMake Error at lbplibrary/CMakeLists.txt:25 (find_package):\n  By not providing \"FindOpenCV.cmake\" in CMAKE_MODULE_PATH this project has\n  asked CMake to find a package configuration file provided by \"OpenCV\", but\n  CMake did not find one.\n\n  Could not find a package configuration file provided by \"OpenCV\" with any\n  of the following names:\n\n    OpenCVConfig.cmake\n    opencv-config.cmake\n\n  Add the installation prefix of \"OpenCV\" to CMAKE_PREFIX_PATH or set\n  \"OpenCV_DIR\" to a directory containing one of the above files.  If \"OpenCV\"\n  provides a separate development package or SDK, be sure it has been\n  installed.\n\n","title":"Error","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: CMake Error at lbplibrary/CMakeLists.txt:25 (find_package):
+  By not providing "FindOpenCV.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "OpenCV", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "OpenCV" with any
+  of the following names:
+
+    OpenCVConfig.cmake
+    opencv-config.cmake
+
+  Add the installation prefix of "OpenCV" to CMAKE_PREFIX_PATH or set
+  "OpenCV_DIR" to a directory containing one of the above files.  If "OpenCV"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+CMAKE SERVER: CMake Error at lbplibrary/CMakeLists.txt:25 (find_package):
+  By not providing "FindOpenCV.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "OpenCV", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "OpenCV" with any
+  of the following names:
+
+    OpenCVConfig.cmake
+    opencv-config.cmake
+
+  Add the installation prefix of "OpenCV" to CMAKE_PREFIX_PATH or set
+  "OpenCV_DIR" to a directory containing one of the above files.  If "OpenCV"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":950,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
 CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":1000,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
@@ -73,76 +131,20 @@ CMAKE SERVER:
 
 CMAKE SERVER: [== "CMake Server" ==[
 
-CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Configuring done","type":"message"}
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Configuring incomplete, errors occurred!\nSee also \"/home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/CMakeOutput.log\".","type":"message"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 
-CMAKE SERVER: Configuring done
-CMAKE SERVER: Configuring done
+CMAKE SERVER: Configuring incomplete, errors occurred!
+See also "/home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/CMakeOutput.log".
+CMAKE SERVER: Configuring incomplete, errors occurred!
+See also "/home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/CMakeOutput.log".
 CMAKE SERVER: 
 
 CMAKE SERVER: [== "CMake Server" ==[
 
-CMAKE SERVER: {"cookie":"","inReplyTo":"configure","type":"reply"}
+CMAKE SERVER: {"cookie":"","errorMessage":"Configuration failed.","inReplyTo":"configure","type":"error"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 
-CMAKE SERVER: [== "CMake Server" ==[
-
-CMAKE SERVER: {"type":"compute"}
-
-CMAKE SERVER: ]== "CMake Server" ==]
-
-CMAKE SERVER: 
-
-CMAKE SERVER: [== "CMake Server" ==[
-
-CMAKE SERVER: {"cookie":"","inReplyTo":"compute","progressCurrent":1000,"progressMaximum":1000,"progressMessage":"Generating","progressMinimum":0,"type":"progress"}
-
-CMAKE SERVER: ]== "CMake Server" ==]
-
-CMAKE SERVER: 
-
-CMAKE SERVER: [== "CMake Server" ==[
-
-CMAKE SERVER: {"cookie":"","inReplyTo":"compute","message":"Generating done","type":"message"}
-
-CMAKE SERVER: ]== "CMake Server" ==]
-
-CMAKE SERVER: Generating done
-CMAKE SERVER: 
-
-CMAKE SERVER: [== "CMake Server" ==[
-
-CMAKE SERVER: {"cookie":"","inReplyTo":"compute","type":"reply"}
-
-CMAKE SERVER: ]== "CMake Server" ==]
-
-CMAKE SERVER: [== "CMake Server" ==[
-
-CMAKE SERVER: {"type":"cmakeInputs"}
-
-CMAKE SERVER: ]== "CMake Server" ==]
-
-CMAKE SERVER: 
-
-CMAKE SERVER: [== "CMake Server" ==[
-
-CMAKE SERVER: {"buildFiles":[{"isCMake":true,"isTemporary":false,"sources":["../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake","../../../../../Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake"]},{"isCMake":false,"isTemporary":false,"sources":["CMakeLists.txt","../../../../../Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake","../../../../../Android/Sdk/ndk-bundle/build/cmake/platforms.cmake"]},{"isCMake":false,"isTemporary":true,"sources":["../../../.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/3.10.2/CMakeSystem.cmake","../../../.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/3.10.2/CMakeCCompiler.cmake","../../../.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"]}],"cmakeRootDirectory":"/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10","cookie":"","inReplyTo":"cmakeInputs","sourceDirectory":"/home/quyenpham/ImageProcessing/app/src/main/cpp","type":"reply"}
-
-CMAKE SERVER: ]== "CMake Server" ==]
-
-CMAKE SERVER: [== "CMake Server" ==[
-
-CMAKE SERVER: {"type":"codemodel"}
-
-CMAKE SERVER: ]== "CMake Server" ==]
-
-CMAKE SERVER: 
-
-CMAKE SERVER: [== "CMake Server" ==[
-
-CMAKE SERVER: {"configurations":[{"name":"Debug","projects":[{"buildDirectory":"/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64","name":"preprocess","sourceDirectory":"/home/quyenpham/ImageProcessing/app/src/main/cpp","targets":[{"artifacts":["/home/quyenpham/ImageProcessing/app/build/intermediates/cmake/debug/obj/x86_64/libPreprocess.so"],"buildDirectory":"/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++14 -fexceptions -frtti -O0 -fno-limit-debug-info  -fPIC  ","defines":["Preprocess_EXPORTS"],"includePath":[{"path":"/home/quyenpham/Downloads/OpenCV-android-sdk/sdk/native/jni/include"}],"isGenerated":false,"language":"CXX","sources":["C_preprocess.cpp"]}],"fullName":"libPreprocess.so","linkFlags":"-Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libatomic.a -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now","linkLibraries":"/home/quyenpham/ImageProcessing/app/src/main/cpp/../jniLibs/x86_64/libopencv_java4.so -landroid -llog -latomic -lm","linkerLanguage":"CXX","name":"Preprocess","sourceDirectory":"/home/quyenpham/ImageProcessing/app/src/main/cpp","sysroot":"/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot","type":"SHARED_LIBRARY"}]}]}],"cookie":"","inReplyTo":"codemodel","type":"reply"}
-
-CMAKE SERVER: ]== "CMake Server" ==]
-
+CMAKE SERVER: null

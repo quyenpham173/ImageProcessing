@@ -1,32 +1,32 @@
 {
   "stringTable": {
-    "0": "/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a",
-    "1": "--target=aarch64-none-linux-android21 --gcc-toolchain=/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DPreprocess_EXPORTS -I/home/quyenpham/Downloads/OpenCV-android-sdk/sdk/native/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++14 -fexceptions -frtti -O0 -fno-limit-debug-info -fPIC"
+    "0": "/home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a",
+    "1": "--target=aarch64-none-linux-android21 --gcc-toolchain=/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/quyenpham/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DPreprocess_EXPORTS -I/home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/include -I/home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/lbplibrary -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++14 -fexceptions -frtti -O0 -fno-limit-debug-info -fPIC"
   },
   "buildFiles": [
     "/home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake",
     "/home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake",
-    "/home/quyenpham/ImageProcessing/app/src/main/cpp/CMakeLists.txt"
+    "/home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/CMakeLists.txt"
   ],
   "cleanCommands": [
-    "/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a\" --target clean"
+    "/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a\" --target clean"
   ],
   "libraries": {
     "Preprocess-Debug-arm64-v8a": {
-      "buildCommand": "/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a\" --target Preprocess",
+      "buildCommand": "/home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a\" --target Preprocess",
       "buildType": "debug",
       "toolchain": "2856925111",
       "abi": "arm64-v8a",
       "artifactName": "Preprocess",
       "files": [
         {
-          "src": "/home/quyenpham/ImageProcessing/app/src/main/cpp/C_preprocess.cpp",
+          "src": "/home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/C_preprocess.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         }
       ],
       "headers": [],
-      "output": "/home/quyenpham/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so"
+      "output": "/home/quyenpham/Downloads/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so"
     }
   },
   "toolchains": {

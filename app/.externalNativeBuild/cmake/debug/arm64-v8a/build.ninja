@@ -34,7 +34,7 @@ include rules.ninja
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a && /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/quyenpham/ImageProcessing/app/src/main/cpp -B/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a
+  COMMAND = cd /home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a && /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp -B/home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -44,7 +44,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a && /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a && /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 build edit_cache: phony CMakeFiles/edit_cache.util
@@ -56,11 +56,11 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Order-only phony target for Preprocess
 
 build cmake_object_order_depends_target_Preprocess: phony
-build CMakeFiles/Preprocess.dir/C_preprocess.cpp.o: CXX_COMPILER__Preprocess /home/quyenpham/ImageProcessing/app/src/main/cpp/C_preprocess.cpp || cmake_object_order_depends_target_Preprocess
+build CMakeFiles/Preprocess.dir/C_preprocess.cpp.o: CXX_COMPILER__Preprocess /home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/C_preprocess.cpp || cmake_object_order_depends_target_Preprocess
   DEFINES = -DPreprocess_EXPORTS
   DEP_FILE = CMakeFiles/Preprocess.dir/C_preprocess.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++14 -fexceptions -frtti -O0 -fno-limit-debug-info  -fPIC
-  INCLUDES = -I/home/quyenpham/Downloads/OpenCV-android-sdk/sdk/native/jni/include
+  INCLUDES = -I/home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/include -I/home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/lbplibrary
   OBJECT_DIR = CMakeFiles/Preprocess.dir
   OBJECT_FILE_DIR = CMakeFiles/Preprocess.dir
 
@@ -69,24 +69,24 @@ build CMakeFiles/Preprocess.dir/C_preprocess.cpp.o: CXX_COMPILER__Preprocess /ho
 
 
 #############################################
-# Link the shared library /home/quyenpham/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so
+# Link the shared library /home/quyenpham/Downloads/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so
 
-build /home/quyenpham/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so: CXX_SHARED_LIBRARY_LINKER__Preprocess CMakeFiles/Preprocess.dir/C_preprocess.cpp.o | /home/quyenpham/ImageProcessing/app/src/main/cpp/../jniLibs/arm64-v8a/libopencv_java4.so
+build /home/quyenpham/Downloads/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so: CXX_SHARED_LIBRARY_LINKER__Preprocess CMakeFiles/Preprocess.dir/C_preprocess.cpp.o | /home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/../jniLibs/arm64-v8a/libopencv_java4.so /home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/lbplibrary/liblbp.so
   LANGUAGE_COMPILE_FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=c++14 -fexceptions -frtti -O0 -fno-limit-debug-info
   LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libatomic.a -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now
-  LINK_LIBRARIES = /home/quyenpham/ImageProcessing/app/src/main/cpp/../jniLibs/arm64-v8a/libopencv_java4.so -landroid -llog -latomic -lm
+  LINK_LIBRARIES = /home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/../jniLibs/arm64-v8a/libopencv_java4.so /home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/lbplibrary/liblbp.so -landroid -llog -latomic -lm
   OBJECT_DIR = CMakeFiles/Preprocess.dir
   POST_BUILD = :
   PRE_LINK = :
   SONAME = libPreprocess.so
   SONAME_FLAG = -Wl,-soname,
-  TARGET_FILE = /home/quyenpham/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so
+  TARGET_FILE = /home/quyenpham/Downloads/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so
   TARGET_PDB = Preprocess.so.dbg
 # =============================================================================
 # Target aliases.
 
-build Preprocess: phony /home/quyenpham/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so
-build libPreprocess.so: phony /home/quyenpham/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so
+build Preprocess: phony /home/quyenpham/Downloads/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so
+build libPreprocess.so: phony /home/quyenpham/Downloads/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so
 # =============================================================================
 # Folder targets.
 
@@ -98,7 +98,7 @@ build libPreprocess.so: phony /home/quyenpham/ImageProcessing/app/build/intermed
 #############################################
 # The main all target.
 
-build all: phony /home/quyenpham/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so
+build all: phony /home/quyenpham/Downloads/ImageProcessing/app/build/intermediates/cmake/debug/obj/arm64-v8a/libPreprocess.so
 
 #############################################
 # Make the all target the default.
@@ -108,13 +108,13 @@ default all
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake /home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake /home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake /home/quyenpham/ImageProcessing/app/src/main/cpp/CMakeLists.txt CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake /home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake /home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake /home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/CMakeLists.txt CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake
   pool = console
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake /home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake /home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake /home/quyenpham/ImageProcessing/app/src/main/cpp/CMakeLists.txt CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake: phony
+build /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake /home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake /home/quyenpham/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake /home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp/CMakeLists.txt CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake: phony
 
 #############################################
 # Clean all the built files.

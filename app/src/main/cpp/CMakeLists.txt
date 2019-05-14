@@ -9,17 +9,17 @@ cmake_minimum_required(VERSION 3.4.1)
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
-#project(PreProcess)
 project(preprocess)
 set(CMAKE_VERBOSE_MAKEFILE on)
-include_directories(/home/quyenpham/Downloads/OpenCV-android-sdk/sdk/native/jni/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lbplibrary)
 add_library( lib_opencv SHARED IMPORTED )
+add_library( lib_lbp SHARED IMPORTED )
 set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION
         ${CMAKE_CURRENT_SOURCE_DIR}/../jniLibs/${ANDROID_ABI}/libopencv_java4.so)
-if(testing_enabled)
-    add_subdirectory(lbplibrary)
-    add_subdirectory(nlopt-2.6.1)
-endif()
+set_target_properties(lib_lbp PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_CURRENT_SOURCE_DIR}/lbplibrary/liblbp.so)
+add_subdirectory(lbplibrary)
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 #set(SOURCES native-lib.cpp)
 add_library( # Sets the name of the library.
@@ -30,7 +30,6 @@ add_library( # Sets the name of the library.
 
         # Provides a relative path to your source file(s).
         ${CMAKE_CURRENT_SOURCE_DIR}/C_preprocess.cpp
-#        ${CMAKE_CURRENT_SOURCE_DIR}/page_dewarp.cpp
         )
 
 # Searches for a specified prebuilt library and stores the path as a
@@ -53,6 +52,7 @@ add_library( # Sets the name of the library.
 target_link_libraries( # Specifies the target library.
         Preprocess
         lib_opencv
+        lib_lbp
         # Links the target library to the log library
         # included in the NDK.
         android

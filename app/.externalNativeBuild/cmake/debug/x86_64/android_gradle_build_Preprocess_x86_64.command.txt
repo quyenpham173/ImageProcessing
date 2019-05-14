@@ -1,7 +1,7 @@
 Executable : /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake
 arguments : 
 --build
-/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64
+/home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/x86_64
 --target
 Preprocess
 jvmArgs : 

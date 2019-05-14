@@ -42,7 +42,7 @@ rule CXX_SHARED_LIBRARY_LINKER__Preprocess
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/quyenpham/ImageProcessing/app/src/main/cpp -B/home/quyenpham/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a
+  command = /home/quyenpham/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/quyenpham/Downloads/ImageProcessing/app/src/main/cpp -B/home/quyenpham/Downloads/ImageProcessing/app/.externalNativeBuild/cmake/debug/arm64-v8a
   description = Re-running CMake...
   generator = 1
 

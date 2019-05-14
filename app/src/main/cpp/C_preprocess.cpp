@@ -1,6 +1,6 @@
 #include <jni.h>
 #include "C_preprocess.hpp"
-#include "lbplibrary/lbplibrary.hpp"
+#include "lbplibrary.hpp"
 #include <android/log.h>
 
 #define THRESHHOLD  50
@@ -448,29 +448,11 @@ void enforceThreshold(cv::Mat image, cv::Mat *Threshold) {
 
 void enforceContrast(cv::Mat image, cv::Mat *dst, string option) {
     std::string local = "local";
-    //image.convertTo(image, CV_8UC1);
-    // printf("SAI O DAYYYYYYYY");
-    // if (option.compare(local) == 0) {
-    //     cv::Ptr<cv::CLAHE> clahe = cv::createCLAHE(2.0);
-    //     clahe->apply(image, *dst);
-    // }
-    // else
-    //     cv::equalizeHist(image, *dst);
-    //cv::equalizeHist(image, *dst);
     cv::Mat frame, img_lbp;
     LBP *lbp;
-	// lbp = new VARLBP;
-    // lbp = new CSLBP;
-	// lbp = new CSLDP;
-	//lbp = new XCSLBP;
-	// lbp = new SILTP;
-	// lbp = new CSSILTP;
-	// lbp = new SCSLBP;
 	lbp = new BGLBP;
     lbp->run(image, img_lbp);
 	cv::normalize(img_lbp, *dst, 0, 255, cv::NORM_MINMAX, CV_8UC1);
-    
-    //printf("ENDDDDDDDDDDDDDDDDDD");        
 }
 
 void smoothImage(cv::Mat image, int kerSize,  cv::Mat *dst, string option) {

@@ -19,8 +19,6 @@
 using namespace std;
 using namespace cv;
 
-static const int MEMORY_OK = 0;
-static const int UCHAR_ARRAY_ERROR = 3;
 enum Action {
     chup_anh = 0,
     nghieng_len = 1,
@@ -35,29 +33,6 @@ enum Action {
     ha_xuong = 10
 };
 
-typedef struct {
-    float cropBounds[4]; //left, top, right, bottom
-    unsigned char* transforms;
-    int size;
-} TransformList;
-
-typedef struct {
-    unsigned int width;
-    unsigned int height;
-
-    unsigned int redWidth;
-    unsigned int redHeight;
-    unsigned int greenWidth;
-    unsigned int greenHeight;
-    unsigned int blueWidth;
-    unsigned int blueHeight;
-
-    unsigned char* red;
-    unsigned char* green;
-    unsigned char* blue;
-
-    TransformList transformList;
-} Bitmap;
 
 // double area_triangle(double a, double b, double c);
 
