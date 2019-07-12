@@ -20,7 +20,7 @@ using namespace std;
 using namespace cv;
 
 enum Action {
-    chup_anh = 0,
+    chup_anh = 11,
     nghieng_len = 1,
     nghieng_xuong = 2,
     nghieng_trai = 3,
@@ -30,27 +30,31 @@ enum Action {
     len_tren = 7,
     xuong_duoi = 8,
     nang_len = 9,
-    ha_xuong = 10
+    ha_xuong = 10,
+};
+
+extern std::vector<cv::Point2f> line_point;
+
+class BGLBP
+{
+private:
+int beta;
+int filterDim;
+int neighbours;
+
+public:
+BGLBP();
+~BGLBP();
+
+void run(const cv::Mat &img_input, cv::Mat &img_output);
 };
 
 
-// double area_triangle(double a, double b, double c);
+ void enforceContrast(cv::Mat image, cv::Mat &dst, string option="global");
 
-// void imageresize (cv::Mat image_in, cv::Mat *image_out);
+void enforceThreshold(cv::Mat image, cv::Mat *Threshold);
 
-// void enforceContrast(cv::Mat image, cv::Mat &dst, string option="global");
-
-// void enforceThreshold(cv::Mat image, cv::Mat *Threshold);
-
-// void smoothImage(cv::Mat image, int kerSize, cv::Mat *dst, string option = "Gausian");
-
-// double area_triangle(double a, double b, double c) {
-//     double s = (a + b + c)/2;
-//     s = sqrt(s * (s - a) * (s - b) * (s - c));
-//     return s;
-// }
-void help();
-int C_preprocess(cv::Mat src, cv::Mat &dst, Action &ac, std::vector <cv::Point2f> *point);
+ void smoothImage(cv::Mat image, int kerSize, cv::Mat *dst, string option = "Gausian");
 
 class PreProcess {
 public:
@@ -71,7 +75,7 @@ public:
 
 public:
     int numofEdge;
-    cv::Mat image;
+    cv::Mat image, color_dst;
     int status;
     float dilation;
     int charSize;
@@ -93,6 +97,7 @@ public:
         }
     } comp;
 };
+
 
 
 #endif //READINGASSISTANCE_NATIVE_LIB_H

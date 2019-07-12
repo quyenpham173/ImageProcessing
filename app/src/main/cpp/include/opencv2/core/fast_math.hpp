@@ -70,6 +70,10 @@
 #  endif
 #endif
 
+#ifdef HAVE_TEGRA_OPTIMIZATION
+#  include "tegra_round.hpp"
+#endif
+
 #if defined __GNUC__ && defined __arm__ && (defined __ARM_PCS_VFP || defined __ARM_VFPV3__ || defined __ARM_NEON__) && !defined __SOFTFP__ && !defined(__CUDACC__)
     // 1. general scheme
     #define ARM_ROUND(_value, _asm_string) \
@@ -108,6 +112,9 @@ cvRound( double value )
         fistp t;
     }
     return t;
+#elif ((defined _MSC_VER && defined _M_ARM) || defined CV_ICC || \
+        defined __GNUC__) && defined HAVE_TEGRA_OPTIMIZATION
+    TEGRA_ROUND_DBL(value);
 #elif defined CV_ICC || defined __GNUC__
 # if defined ARM_ROUND_DBL
     ARM_ROUND_DBL(value);
@@ -193,6 +200,9 @@ CV_INLINE int cvRound(float value)
         fistp t;
     }
     return t;
+#elif ((defined _MSC_VER && defined _M_ARM) || defined CV_ICC || \
+        defined __GNUC__) && defined HAVE_TEGRA_OPTIMIZATION
+    TEGRA_ROUND_FLT(value);
 #elif defined CV_ICC || defined __GNUC__
 # if defined ARM_ROUND_FLT
     ARM_ROUND_FLT(value);

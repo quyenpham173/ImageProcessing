@@ -45,13 +45,20 @@
 #include <vector>
 #include <opencv2/core.hpp>
 
-#include "../dnn/version.hpp"
+#if !defined CV_DOXYGEN && !defined CV_DNN_DONT_ADD_EXPERIMENTAL_NS
+#define CV__DNN_EXPERIMENTAL_NS_BEGIN namespace experimental_dnn_34_v11 {
+#define CV__DNN_EXPERIMENTAL_NS_END }
+namespace cv { namespace dnn { namespace experimental_dnn_34_v11 { } using namespace experimental_dnn_34_v11; }}
+#else
+#define CV__DNN_EXPERIMENTAL_NS_BEGIN
+#define CV__DNN_EXPERIMENTAL_NS_END
+#endif
 
 #include <opencv2/dnn/dict.hpp>
 
 namespace cv {
 namespace dnn {
-CV__DNN_INLINE_NS_BEGIN
+CV__DNN_EXPERIMENTAL_NS_BEGIN
 //! @addtogroup dnn
 //! @{
 
@@ -69,8 +76,7 @@ CV__DNN_INLINE_NS_BEGIN
         DNN_BACKEND_DEFAULT,
         DNN_BACKEND_HALIDE,
         DNN_BACKEND_INFERENCE_ENGINE,
-        DNN_BACKEND_OPENCV,
-        DNN_BACKEND_VKCOM
+        DNN_BACKEND_OPENCV
     };
 
     /**
@@ -83,7 +89,6 @@ CV__DNN_INLINE_NS_BEGIN
         DNN_TARGET_OPENCL,
         DNN_TARGET_OPENCL_FP16,
         DNN_TARGET_MYRIAD,
-        DNN_TARGET_VULKAN,
         //! FPGA device with CPU fallbacks using Inference Engine's Heterogeneous plugin.
         DNN_TARGET_FPGA
     };
@@ -273,7 +278,6 @@ CV__DNN_INLINE_NS_BEGIN
 
         virtual Ptr<BackendNode> initInfEngine(const std::vector<Ptr<BackendWrapper> > &inputs);
 
-        virtual Ptr<BackendNode> initVkCom(const std::vector<Ptr<BackendWrapper> > &inputs);
        /**
         * @brief Automatic Halide scheduling based on layer hyper-parameters.
         * @param[in] node Backend node with Halide functions.
@@ -955,15 +959,19 @@ CV__DNN_INLINE_NS_BEGIN
                              CV_OUT std::vector<int>& indices,
                              const float eta = 1.f, const int top_k = 0);
 
+    /** @brief Release a Myriad device is binded by OpenCV.
+     *
+     * Single Myriad device cannot be shared across multiple processes which uses
+     * Inference Engine's Myriad plugin.
+     */
+    CV_EXPORTS_W void resetMyriadDevice();
+
 //! @}
-CV__DNN_INLINE_NS_END
+CV__DNN_EXPERIMENTAL_NS_END
 }
 }
 
 #include <opencv2/dnn/layer.hpp>
 #include <opencv2/dnn/dnn.inl.hpp>
-
-/// @deprecated Include this header directly from application. Automatic inclusion will be removed
-#include <opencv2/dnn/utils/inference_engine.hpp>
 
 #endif  /* OPENCV_DNN_DNN_HPP */

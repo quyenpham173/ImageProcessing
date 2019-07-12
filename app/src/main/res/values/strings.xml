@@ -1,5 +1,24 @@
 <resources>
-    <string name="app_name">ImageProcessing</string>
+    <string name="app_name">Reading Assistance</string>
     <string name="request_permission">This sample needs camera permission.</string>
     <string name="camera_error">This device doesn\\\'t support Camera2 API.</string>
+    <string name="language">Chọn ngôn ngữ</string>
+    <string name="time">Thời gian chụp ảnh</string>
+    <string name="camera">Camera</string>
+    <string name="usage">Hướng dẫn sử dụng</string>
+    <string name="hdsd">Chọn ngôn ngữ trang sách muốn đọc tại mục chọn ngôn ngữ.
+    Chọn khoảng thời gian giữa các lần tự động chụp ảnh tại mục thời gian chụp ảnh.
+    Nhấn vào nút Camera để tiến hành chụp ảnh trang sách.
+    Mẹo: Để chụp được ảnh tốt, khi bắt đầu hãy đặt điện thoại giữa trang sách rồi sau đó nâng lên dần và chỉnh điện thoại theo hướng dẫn đưa ra.
+    Nhấn Back để quay lại.</string>
+    <string-array name="arr_language">
+        <item>Tiếng Việt</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="arr_Time">
+        <item>5 giây</item>
+        <item>4 giây</item>
+        <item>3 giây</item>
+        <item>2 giây</item>
+    </string-array>
 </resources>
