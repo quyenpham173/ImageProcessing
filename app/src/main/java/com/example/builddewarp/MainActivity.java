@@ -3,6 +3,7 @@ package com.example.builddewarp;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v4.app.ActivityCompat;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     TextView usage;
     private static int time = 0;
     private static String language = null;
-    private static String clickItem;
+    private static String langItem, timeItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new SpinnerAdapter(this, mTime);
         spnTime.setAdapter(mAdapter);
 
-        OnClick(spnLanguage);
-        OnClick(spnTime);
+        OnLanguageClick();
+        OnTimeClick();
         usage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,36 +67,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        final Locale loc = new Locale("vi");
-        textToSpeech = new TextToSpeech(MainActivity.this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if(status != TextToSpeech.ERROR){
-                    textToSpeech.setLanguage(loc);
-                    textToSpeech.speak(xin_chao, TextToSpeech.QUEUE_FLUSH,null, utteranceId);
-                }
-            }
-        });
         btnCamera = findViewById(R.id.btn_camera);
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textToSpeech.stop();
                 Intent intent = new Intent(MainActivity.this, CaptureImage.class);
                 startActivity(intent);
             }
         });
-/*        RelativeLayout relativeLayout = (RelativeLayout) findViewById(activity_main);
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                textToSpeech.stop();
-                Intent intent = new Intent(MainActivity.this, CaptureImage.class);
-                startActivity(intent);
+    }
 
-            }
-        });*/
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     String[] permissions = new String[]{
@@ -118,12 +102,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void OnClick(Spinner spinner){
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    public void OnLanguageClick(){
+        spnLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                SpinnerItem langItem = (SpinnerItem) parent.getItemAtPosition(position);
-                clickItem = langItem.getmLanguage();
+                SpinnerItem lanItem = (SpinnerItem) parent.getItemAtPosition(position);
+                langItem = lanItem.getmLanguage();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(MainActivity.this, "Vui lòng chọn lại", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void OnTimeClick(){
+        spnTime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                SpinnerItem timItem = (SpinnerItem) parent.getItemAtPosition(position);
+                timeItem = timItem.getmLanguage();
             }
 
             @Override
@@ -134,14 +133,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static String getLang(){
-        if (clickItem.equals("Tiếng Việt"))
-            language = "vie";
-        else language = "eng";
+        switch (langItem){
+            case "English":
+                language = "eng";
+                break;
+            case "Tiếng Việt":
+                language = "vie";
+                break;
+                default:
+                    break;
+        }
         return language;
     }
 
     public static int getTimer(){
-        switch (clickItem){
+        switch (timeItem){
             case "5 giây":
                 time = 5000;
                 break;

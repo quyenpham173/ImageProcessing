@@ -21,10 +21,12 @@ public class ImageToText extends AsyncTask<Bitmap,String,String> {
     private static final String TESS_DATA = "/tessdata";
     private static final String DATA_PATH = Environment.getExternalStorageDirectory().toString() + "/Tess1";
     private Context contextImageToText;
+    private TextView textView;
     private String language = MainActivity.getLang();
 
-    ImageToText(Context context){
+    ImageToText(Context context, TextView text){
         this.contextImageToText=context;
+        this.textView = text;
     }
 
     @Override
@@ -40,7 +42,6 @@ public class ImageToText extends AsyncTask<Bitmap,String,String> {
         tessBaseAPI.init(DATA_PATH,language);
         tessBaseAPI.setImage(bitmaps[0]);
         String s = tessBaseAPI.getUTF8Text().replace("_", "").replace("~", "");
-        Log.d("Quyen", language);
         return s;
     }
 
@@ -52,6 +53,7 @@ public class ImageToText extends AsyncTask<Bitmap,String,String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        textView.append(s);
     }
 
     private void prepareTessData(){

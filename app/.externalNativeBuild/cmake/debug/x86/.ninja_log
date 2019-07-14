@@ -1,4 +1,4 @@
 # ninja log v5
-0	1233	0	CMakeFiles/preprocess.dir/C_preprocess.cpp.o	56bb34ed6608c17d
-0	2117	0	CMakeFiles/preprocess.dir/page_dewarp.cpp.o	ec14748e861c666e
-2117	2159	0	/home/quyenpham/MyApplication/app/build/intermediates/cmake/debug/obj/x86/libpreprocess.so	c622019a8e5278dd
+0	1688	0	CMakeFiles/preprocess.dir/C_preprocess.cpp.o	56bb34ed6608c17d
+0	2793	0	CMakeFiles/preprocess.dir/page_dewarp.cpp.o	ec14748e861c666e
+2793	2854	0	/home/quyenpham/MyApplication/app/build/intermediates/cmake/debug/obj/x86/libpreprocess.so	c622019a8e5278dd

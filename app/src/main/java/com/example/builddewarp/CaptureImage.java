@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Camera;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.SurfaceTexture;
+import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
@@ -41,6 +41,8 @@ import android.widget.Toast;
 import com.example.quyenpham.R;
 import org.opencv.android.Utils;
 import org.opencv.core.Mat;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -83,8 +85,6 @@ public class CaptureImage extends AppCompatActivity {
     private int test;
     String utteranceId = UUID.randomUUID().toString();
     RelativeLayout take;
-    private Camera camera;
-    Policy.Parameters params;
     final Locale loc = new Locale("vi");
     String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() +
             File.separator + ROOT_FOLDER +
@@ -218,7 +218,7 @@ public class CaptureImage extends AppCompatActivity {
     public class ImageSave implements Runnable {
         private Image image;
         private ImageReader imageReader;
-        ImageToText imageToText = new ImageToText(CaptureImage.this);
+        //ImageToText imageToText = new ImageToText(CaptureImage.this);
         private ImageSave(ImageReader reader) {
             imageReader = reader;
             image = imageReader.acquireNextImage();
@@ -288,13 +288,6 @@ public class CaptureImage extends AppCompatActivity {
                 }
             });
             if (test == 11){
-/*                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    try {
-                        camManager.setTorchMode(cameraId, false);
-                    } catch (CameraAccessException e) {
-                        e.printStackTrace();
-                    }
-                }*/
                 //Lưu ảnh gốc
                 FileOutputStream fileOutputStream;
                 File imageFile = createImageFile();
@@ -304,15 +297,19 @@ public class CaptureImage extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Bitmap bit = process(mymat);
-                String result = imageToText.doInBackground(bit);
+                process(mymat);
+                //String result = imageToText.doInBackground(bit);
                 Bundle bundle = new Bundle();
-                bundle.putString("RESULT", result);
+                bundle.putString("Image", Environment.getExternalStorageDirectory().getPath() +"/" + ROOT_FOLDER + "/"+PHOTO_FOLDER+"/"+ fileDewarp);
+                //ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+                //bit.compress(Bitmap.CompressFormat.PNG, 100, bStream);
+                //byte[] byteArray = bStream.toByteArray();
                 Intent intent = new Intent(CaptureImage.this, ResultActivity.class);
+                //intent.putExtra("Image", bit);
                 intent.putExtras(bundle);
 
-
                 startActivity(intent);
+                finish();
             }
         }
 
@@ -323,30 +320,21 @@ public class CaptureImage extends AppCompatActivity {
     private native long dewarpImage(long mat, long mat2);
     private native long getLines(long m, long m2);
 
-    private Bitmap process(Mat m){
+    private void process(Mat m){
         closeCamera();
         //Lấy ảnh các cạnh
-        Mat Line = new Mat();
+/*        Mat Line = new Mat();
         long longLines = getLines(m.nativeObj, Line.nativeObj);
         Mat matLines = new Mat(longLines);
         int w = matLines.width();
         int h = matLines.height();
         Bitmap.Config config = Bitmap.Config.RGB_565;
         Bitmap bm = Bitmap.createBitmap(w, h, config);
-        Utils.matToBitmap(matLines, bm);
+        Utils.matToBitmap(matLines, bm);*/
 
         //Lấy ảnh Dewarp và xử lý OCR
         Mat mat_dst = new Mat();
         long img_long = dewarpImage(m.nativeObj, mat_dst.nativeObj);
-        toSpeech = new TextToSpeech(CaptureImage.this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if(status != TextToSpeech.ERROR){
-                    toSpeech.setLanguage(loc);
-                    toSpeech.speak(wait, TextToSpeech.QUEUE_FLUSH,null, utteranceId);
-                }
-            }
-        });
         Mat img_dst = new Mat(img_long);
         int w1 = img_dst.width();
         int h1 = img_dst.height();
@@ -358,9 +346,9 @@ public class CaptureImage extends AppCompatActivity {
             RotateBitmap(bmp, 90);
         }
         Utils.matToBitmap(img_dst, bmp);
-        SaveImageLines(bm);  //Lưu ảnh các cạnh
+        //SaveImageLines(bm);  //Lưu ảnh các cạnh
         SaveImageDewarp(bmp);  // Lưu ảnh dewarp
-        return bmp;
+        //return bmp;
     }
 
     @Override
@@ -376,17 +364,6 @@ public class CaptureImage extends AppCompatActivity {
         } else {
             textureView.setSurfaceTextureListener(surfaceTextureListener);
         }
-/*        CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            try {
-                cameraId = camManager.getCameraIdList()[0];
-                if (test != 11)
-                    camManager.setTorchMode(cameraId, true);
-                else camManager.setTorchMode(cameraId, false);
-            } catch (CameraAccessException e) {
-                e.printStackTrace();
-            }
-        }*/
     }
 
     @Override
@@ -394,14 +371,22 @@ public class CaptureImage extends AppCompatActivity {
         closeCamera();
         closeBackgroundThread();
         super.onPause();
+        if (toSpeech != null)
+            toSpeech.shutdown();
     }
     private boolean mFlashSupported;
 
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {
         if (mFlashSupported) {
-            requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
-            requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AF_MODE_AUTO);
-            requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
+            requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
+/*            requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AF_MODE_AUTO);
+            requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);*/
+            requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_TORCH);
+            try {
+                cameraCaptureSession.setRepeatingRequest(requestBuilder.build(), null, null);
+            } catch (CameraAccessException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -505,6 +490,7 @@ public class CaptureImage extends AppCompatActivity {
             mTimer.schedule(mTimerTask, 3000, period);
         }
     }
+    CaptureRequest.Builder captureStill;
 
     private void closeCamera() {
         if (cameraCaptureSession != null) {
@@ -585,6 +571,7 @@ public class CaptureImage extends AppCompatActivity {
         state = STATE_WAIT_LOCK;
         previewCaptureRequestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER,
                 CaptureRequest.CONTROL_AF_TRIGGER_START);
+        //setAutoFlash(previewCaptureRequestBuilder);
         captureStillImage();
     }
 
@@ -593,6 +580,7 @@ public class CaptureImage extends AppCompatActivity {
             state = STATE_PREVIEW;
             previewCaptureRequestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER,
                     CaptureRequest.CONTROL_AF_TRIGGER_CANCEL);
+            //setAutoFlash(captureStill);
             cameraCaptureSession.capture(previewCaptureRequestBuilder.build(),
                     cameraSessionCaptureCallback,
                     backgroundHandler);
@@ -603,7 +591,7 @@ public class CaptureImage extends AppCompatActivity {
 
     private void captureStillImage() {
         try {
-            CaptureRequest.Builder captureStill = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+            captureStill = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
             captureStill.addTarget(imageReader.getSurface());
 
             int rotation = getWindowManager().getDefaultDisplay().getRotation();
@@ -630,9 +618,9 @@ public class CaptureImage extends AppCompatActivity {
         String fileName = FILE_IMAGE + System.currentTimeMillis() + ".jpg";
         return new File(dir, fileName);
     }
-
+    String fileDewarp;
     private void SaveImageDewarp(Bitmap finalBitmap) {
-        String fileDewarp = FILE_DEWARP + System.currentTimeMillis() + ".jpg";
+        fileDewarp = FILE_DEWARP + System.currentTimeMillis() + ".jpg";
         File file = new File (dir, fileDewarp);
         if (file.exists ()) file.delete ();
         try {

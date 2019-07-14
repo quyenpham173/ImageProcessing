@@ -1,13 +1,13 @@
 package com.example.builddewarp;
 
-public class SpinnerItem {
+class SpinnerItem {
     private String mItem;
 
-    public SpinnerItem(String string){
+    SpinnerItem(String string){
         mItem = string;
     }
 
-    public String getmLanguage() {
+    String getmLanguage() {
         return mItem;
     }
 }

@@ -11,6 +11,7 @@
     Nhấn vào nút Camera để tiến hành chụp ảnh trang sách.
     Mẹo: Để chụp được ảnh tốt, khi bắt đầu hãy đặt điện thoại giữa trang sách rồi sau đó nâng lên dần và chỉnh điện thoại theo hướng dẫn đưa ra.
     Nhấn Back để quay lại.</string>
+    <string name="next">Vui lòng đợi xử lý, sau khi đọc xong nhấn vào Camera để chụp ảnh khác</string>
     <string-array name="arr_language">
         <item>Tiếng Việt</item>
         <item>English</item>
