@@ -41,7 +41,7 @@ public class ImageToText extends AsyncTask<Bitmap,String,String> {
         TessBaseAPI tessBaseAPI = new TessBaseAPI();
         tessBaseAPI.init(DATA_PATH,language);
         tessBaseAPI.setImage(bitmaps[0]);
-        String s = tessBaseAPI.getUTF8Text().replace("_", "").replace("~", "");
+        String s = tessBaseAPI.getUTF8Text().replace("_", "").replace("~", "").replace("=", "");
         return s;
     }
 

@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -68,8 +69,9 @@ public class ResultActivity extends AppCompatActivity {
                 }
             }, 5000);
             new ImageToText(ResultActivity.this, tvResult).execute(myBitmap);
+            content = tvResult.getText().toString();
         }
-        content = tvResult.getText().toString();
+        tvResult.setMovementMethod(new ScrollingMovementMethod());
 
         //RelativeLayout relativeLayout = (RelativeLayout) findViewById(activity_result);
         btnNext.setOnClickListener(new View.OnClickListener() {

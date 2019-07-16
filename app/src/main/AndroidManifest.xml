@@ -37,10 +37,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name="com.example.builddewarp.UsageActivity"/>
-        <activity android:name="com.example.builddewarp.CaptureImage" />
-        <activity android:name="com.example.builddewarp.ResultActivity" />
-        <activity android:name="com.example.builddewarp.MainActivity">
+        <activity android:name="com.example.builddewarp.UsageActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.example.builddewarp.CaptureImage"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.example.builddewarp.ResultActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.example.builddewarp.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

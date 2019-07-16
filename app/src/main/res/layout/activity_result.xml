@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:text="@string/next"
-        android:scrollbars="vertical"/>
+        android:scrollbars="vertical" />
 
     <Button
         android:id="@+id/btn_Next"

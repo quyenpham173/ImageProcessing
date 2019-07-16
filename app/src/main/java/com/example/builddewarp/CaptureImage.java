@@ -371,17 +371,21 @@ public class CaptureImage extends AppCompatActivity {
         closeCamera();
         closeBackgroundThread();
         super.onPause();
-        if (toSpeech != null)
-            toSpeech.shutdown();
     }
+
+    @Override
+    protected void onStop() {
+        toSpeech.shutdown();
+        super.onStop();
+    }
+
     private boolean mFlashSupported;
 
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {
         if (mFlashSupported) {
-            requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
-/*            requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AF_MODE_AUTO);
-            requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);*/
-            requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_TORCH);
+            requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
+            requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AF_MODE_AUTO);
+            requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
             try {
                 cameraCaptureSession.setRepeatingRequest(requestBuilder.build(), null, null);
             } catch (CameraAccessException e) {
@@ -580,7 +584,7 @@ public class CaptureImage extends AppCompatActivity {
             state = STATE_PREVIEW;
             previewCaptureRequestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER,
                     CaptureRequest.CONTROL_AF_TRIGGER_CANCEL);
-            //setAutoFlash(captureStill);
+            //setAutoFlash(previewCaptureRequestBuilder);
             cameraCaptureSession.capture(previewCaptureRequestBuilder.build(),
                     cameraSessionCaptureCallback,
                     backgroundHandler);
@@ -596,6 +600,7 @@ public class CaptureImage extends AppCompatActivity {
 
             int rotation = getWindowManager().getDefaultDisplay().getRotation();
             captureStill.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
+            //setAutoFlash(captureStill);
             CameraCaptureSession.CaptureCallback captureCallback = new
                     CameraCaptureSession.CaptureCallback() {
                         @Override
