@@ -7,7 +7,7 @@ class SpinnerItem {
         mItem = string;
     }
 
-    String getmLanguage() {
+    String getmItem() {
         return mItem;
     }
 }

@@ -6,6 +6,7 @@
     <string name="time">Thời gian chụp ảnh</string>
     <string name="camera">Camera</string>
     <string name="usage">Hướng dẫn sử dụng</string>
+    <string name="imageType">Chọn loại ảnh</string>
     <string name="hdsd">Chọn ngôn ngữ trang sách muốn đọc tại mục chọn ngôn ngữ.
     Chọn khoảng thời gian giữa các lần tự động chụp ảnh tại mục thời gian chụp ảnh.
     Nhấn vào nút Camera để tiến hành chụp ảnh trang sách.

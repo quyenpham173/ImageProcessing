@@ -1,7 +1,7 @@
-Executable : /home/quyenpham/Android/Sdk/cmake/3.6.4111459/bin/cmake
+Executable : C:\Users\QuyenPham\AppData\Local\Android\Sdk\cmake\3.6.4111459\bin\cmake.exe
 arguments : 
 --build
-/home/quyenpham/MyApplication/app/.externalNativeBuild/cmake/debug/arm64-v8a
+C:\Users\QuyenPham\AndroidStudioProjects\ReadingAssistance_TB-master\app\.externalNativeBuild\cmake\debug\arm64-v8a
 --target
 preprocess
 jvmArgs : 

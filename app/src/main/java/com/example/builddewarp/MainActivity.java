@@ -31,15 +31,14 @@ public class MainActivity extends AppCompatActivity {
     final CharSequence xin_chao = "Xin chào, vui lòng lựa chọn rồi nhấn vào nút Camera để chụp ảnh";
     String utteranceId = UUID.randomUUID().toString();
     Button btnCamera;
-    private ArrayList<SpinnerItem> mLanguage;
-    private ArrayList<SpinnerItem> mTime;
+    private ArrayList<SpinnerItem> mLanguage, mType, mTime;
     private SpinnerAdapter mAdapter;
-    Spinner spnLanguage;
-    Spinner spnTime;
+    Spinner spnLanguage, spnTime, spnType;
     TextView usage;
     private static int time = 0;
+    private static int type = 0;
     private static String language = null;
-    private static String langItem, timeItem;
+    private static String langItem, timeItem, typeItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         mh.setBackgroundResource(R.drawable.anh1);
         spnLanguage = findViewById(R.id.spn_language);
         spnTime = findViewById(R.id.spn_time);
+        spnType = findViewById(R.id.spn_type);
         usage = findViewById(R.id.tv_usage);
         checkPermissions();
         initList();
@@ -57,9 +57,12 @@ public class MainActivity extends AppCompatActivity {
         spnLanguage.setAdapter(mAdapter);
         mAdapter = new SpinnerAdapter(this, mTime);
         spnTime.setAdapter(mAdapter);
+        mAdapter = new SpinnerAdapter(this, mType);
+        spnType.setAdapter(mAdapter);
 
         OnLanguageClick();
         OnTimeClick();
+        OnTypeClick();
         usage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 SpinnerItem lanItem = (SpinnerItem) parent.getItemAtPosition(position);
-                langItem = lanItem.getmLanguage();
+                langItem = lanItem.getmItem();
             }
 
             @Override
@@ -122,7 +125,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 SpinnerItem timItem = (SpinnerItem) parent.getItemAtPosition(position);
-                timeItem = timItem.getmLanguage();
+                timeItem = timItem.getmItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(MainActivity.this, "Vui lòng chọn lại", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void OnTypeClick(){
+        spnType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                SpinnerItem typItem = (SpinnerItem) parent.getItemAtPosition(position);
+                typeItem = typItem.getmItem();
             }
 
             @Override
@@ -141,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 language = "vie";
                 break;
                 default:
+                    language = "vie";
                     break;
         }
         return language;
@@ -159,18 +178,40 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "2 giây":
                 time = 2000;
+                break;
+                default:
+                    time = 3000;
+                    break;
         }
         return time;
+    }
+
+    public static int getType(){
+        switch (typeItem){
+            case "Dewarp":
+                type = 1;
+                break;
+            case "Gray":
+                type = 2;
+                break;
+                default:
+                    type = 1;
+                    break;
+        }
+        return type;
     }
 
     private void initList(){
         mTime = new ArrayList<>();
         mLanguage = new ArrayList<>();
+        mType = new ArrayList<>();
         mLanguage.add(new SpinnerItem("Tiếng Việt"));
         mLanguage.add(new SpinnerItem("English"));
         mTime.add(new SpinnerItem("5 giây"));
         mTime.add(new SpinnerItem("4 giây"));
         mTime.add(new SpinnerItem("3 giây"));
         mTime.add(new SpinnerItem("2 giây"));
+        mType.add(new SpinnerItem("Dewarp"));
+        mType.add(new SpinnerItem("Gray"));
     }
 }

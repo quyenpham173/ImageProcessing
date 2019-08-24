@@ -6,8 +6,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
@@ -83,6 +87,7 @@ public class CaptureImage extends AppCompatActivity {
     CharSequence ha_xuong = "hạ xuống";
     CharSequence wait = "Đang lấy nội dung trang sách";
     private int test;
+    int photoType = MainActivity.getType();
     String utteranceId = UUID.randomUUID().toString();
     RelativeLayout take;
     final Locale loc = new Locale("vi");
@@ -215,6 +220,23 @@ public class CaptureImage extends AppCompatActivity {
         return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
     }
 
+    public Bitmap toGrayscale(Bitmap bmpOriginal)
+    {
+        int width, height;
+        height = bmpOriginal.getHeight();
+        width = bmpOriginal.getWidth();
+
+        Bitmap bmpGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(bmpGrayscale);
+        Paint paint = new Paint();
+        ColorMatrix cm = new ColorMatrix();
+        cm.setSaturation(0);
+        ColorMatrixColorFilter f = new ColorMatrixColorFilter(cm);
+        paint.setColorFilter(f);
+        c.drawBitmap(bmpOriginal, 0, 0, paint);
+        return bmpGrayscale;
+    }
+
     public class ImageSave implements Runnable {
         private Image image;
         private ImageReader imageReader;
@@ -297,7 +319,15 @@ public class CaptureImage extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                process(mymat);
+                switch (photoType){
+                    case 1:
+                        process(mymat);
+                        break;
+                    case 2:
+                        toGrayscale(mbitmap);
+                        SaveImageDewarp(mbitmap);
+                        break;
+                }
                 //String result = imageToText.doInBackground(bit);
                 Bundle bundle = new Bundle();
                 bundle.putString("Image", Environment.getExternalStorageDirectory().getPath() +"/" + ROOT_FOLDER + "/"+PHOTO_FOLDER+"/"+ fileDewarp);

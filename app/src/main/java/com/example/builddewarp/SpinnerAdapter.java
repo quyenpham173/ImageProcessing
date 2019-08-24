@@ -38,7 +38,7 @@ public class SpinnerAdapter extends ArrayAdapter<SpinnerItem> {
         TextView textView = convertView.findViewById(R.id.tv_spinner);
         SpinnerItem spinnerItem = getItem(position);
         if (spinnerItem != null)
-            textView.setText(spinnerItem.getmLanguage());
+            textView.setText(spinnerItem.getmItem());
         return convertView;
     }
 }
